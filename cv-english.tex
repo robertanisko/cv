@@ -1,0 +1,211 @@
+\documentclass[a4paper, 10pt]{article}
+
+% Fix margins and encoding
+\usepackage[hmargin=1.25cm, vmargin=1.25cm]{geometry}
+\usepackage[utf8]{inputenc}
+
+% Import other packages
+\usepackage{xunicode}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{enumitem}
+
+% Define colors
+\definecolor{lightg}{HTML}{999999}
+\definecolor{medg}{HTML}{666666}
+\definecolor{darkg}{HTML}{333333}
+\definecolor{hyperlink}{rgb}{0,0.2,0.6}
+\definecolor{maroon}{rgb}{0.5,0,0}
+
+\definecolor{noteone}{HTML}{999999}
+\definecolor{notetwo}{HTML}{848484}
+\definecolor{notethree}{HTML}{424242}
+\definecolor{notefour}{HTML}{212121}
+\definecolor{notefive}{HTML}{000000}
+
+% Custom bullet
+\renewcommand{\labelitemi}{\textcolor{lightg}{\symbol{"2022}}}
+
+% Commands to display nodes on a scale of five
+\newcommand{\fivenotes}{%
+\textcolor{noteone}{\symbol{"2022}}
+\textcolor{notetwo}{\symbol{"2022}}
+\textcolor{notethree}{\symbol{"2022}}
+\textcolor{notefour}{\symbol{"2022}}
+\textcolor{notefive}{\symbol{"2022}}
+}
+
+\newcommand{\fournotes}{%
+\textcolor{noteone}{\symbol{"2022}}
+\textcolor{notetwo}{\symbol{"2022}}
+\textcolor{notethree}{\symbol{"2022}}
+\textcolor{notefour}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+}
+
+\newcommand{\threenotes}{%
+\textcolor{noteone}{\symbol{"2022}}
+\textcolor{notetwo}{\symbol{"2022}}
+\textcolor{notethree}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+}
+
+\newcommand{\twonotes}{%
+\textcolor{noteone}{\symbol{"2022}}
+\textcolor{notetwo}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+}
+
+\newcommand{\onenote}{%
+\textcolor{noteone}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+\textcolor{white}{\symbol{"2022}}
+}
+
+% Set fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Mapping=tex-text]{Hoefler Text}
+\newcommand{\myname}[1]{\fontspec{Helvetica Neue}\fontsize{32pt}{0pt}\selectfont #1}%
+\newcommand{\mytitle}[1]{\fontspec{Helvetica Neue UltraLight}\fontsize{32pt}{0pt}\selectfont #1}%
+\newcommand{\mysection}[1]{\fontspec{Hoefler Text}\fontsize{24pt}{0pt}\selectfont #1}%
+\newcommand{\myurl}[1]{\fontspec{Gill Sans}\fontsize{10pt}{0pt}\selectfont #1}%
+\newcommand{\mygreek}[1]{\fontspec{Symbol}\fontsize{220pt}{0pt}\selectfont #1}%
+\newcommand{\overlay}[1]{\fontspec[Alternate=1, Ligatures={Common, Rare}]{Hoefler Text}\fontsize{160pt}{0pt}\selectfont #1}%
+
+% Custom url style
+\urlstyle{same}
+
+% Display typographic grid
+% \usepackage[columns=5]{cvtypogrid}
+
+% Remove page numbering
+\pagestyle{empty}
+
+% Let's do this
+\begin{document}
+
+% Remove paragraph indentation
+\parindent 0cm
+
+% Header
+  \begin{tikzpicture}[overlay, opacity=0.1]
+    \draw (0.25, -0.25) node {\mygreek λ};
+  \end{tikzpicture}
+
+  % Name block
+  \begin{minipage}[t]{0.59\linewidth}
+    {\myname Robert Anisko,}\\
+    {\parindent 2em \par \mytitle senior developer}
+  \end{minipage}
+  \hfill
+  % School block
+  \begin{minipage}[t]{0.38\linewidth}
+    {\large \textcolor{lightg}{software engineer}, \textcolor{darkg}{EPITA} \textcolor{lightg}{graduate}\\
+    \textcolor{lightg}{born} \textcolor{darkg}{december 6, 1980}}
+  \end{minipage}
+
+~\\
+~\\
+
+% Main sections, enclosed in an unbalanced two column layout
+  % Left block: experience, contact
+  \begin{minipage}[t]{0.59\linewidth}
+    {\textcolor{maroon}{\mysection work experience}}\\
+
+    \par ~ \hfill \textcolor{medg}{\textit{december 2004 to present}}\\[5pt]
+    {\large Senior developer at \textsc{Murex}, Paris\\
+    \emph{\textcolor{darkg}{Research \& Development Team}}}\\[5pt]
+    Development of a new software framework: parallel and distributed computing; seamless interoperability between Java, C++ and C\# modules; reactive programming based on dependencies; connection to external sources of data; persistence. Design of an interactive graph visualization prototype for this framework.\\[5pt]
+    Previously member of the market data team, in charge of the maintenance of a unified and generic access interface to all market parameter libraries for \textsc{Mx}, a trading and risk management solution, under heavy production constraints.\\[5pt]
+    {\textcolor{hyperlink}{\myurl | \url{http://www.murex.com}}}\\
+
+    \par ~ \hfill \textcolor{medg}{\textit{first semester of 2003}}\\[5pt]
+    {\large Intern at \textsc{Utrecht University}, Netherlands\\
+    \emph{\textcolor{darkg}{Software Technology Department}}}\\[5pt]
+    Work on parsing and automatic program transformation, design of a multi-stage language, including the development of an interpreter and a compiler to C++ using domain-specific tools.\\[5pt]
+    Participation to the Fourth Stratego Users Day (SUD'03).\\
+
+    \par ~ \hfill \textcolor{medg}{\textit{between 2001 and 2004}}\\[5pt]
+    {\large As a member of \textsc{Lrde}, Paris}\\[5pt]
+    Contribution to the development in C++ of a compiler for the Tiger toy-language, used as a basis for the teaching of formal languages, compiler construction, and object-oriented programming. Development in Haskell of a virtual marchine for the intermediate representation language produced by the Tiger compiler. Contributor to the GNU Bison open-source parser generator.\\[5pt]
+    Initial development of a program transformation toolkit for the C++ language, including a full grammar specification and a set of post-processing filters to clean-up ambiguities arising during syntactic analysis.\\[5pt]
+    Participation to the Fifth Stratego User Days (SUD'04).\\
+
+    {\large Teacher at \textsc{Epita}, Paris}\\[5pt]
+    Algorithms course and Objective Caml seminar to first and second year students, practical programming classes to first year students.
+
+    \vspace{5em}
+
+    {\large 
+	\begin{tabular}{@{}rl}
+    \textcolor{maroon}{address} &
+    11 rue Cels, 75014 Paris\\
+    \textcolor{maroon}{phone} &
+    06 72 19 77 67\\
+    \textcolor{maroon}{e-mail} &
+    {\myurl \url{robert.anisko@gmail.com}}\\
+    \textcolor{maroon}{web} &
+    {\myurl \url{http://www.robertanisko.com}}\\
+    \end{tabular}}
+  \end{minipage}
+  \hfill
+  % Right block: education, skills, others
+  \begin{minipage}[t]{0.38\linewidth}
+    {\textcolor{maroon}{\mysection education}}\\
+
+    \par ~ \hfill \textcolor{medg}{\textit{2001 to 2003}}\\[5pt]
+    As a student, member of \textbf{LRDE}, the EPITA Research and Development Laboratory.\\[5pt]
+    {\textcolor{hyperlink}{\myurl | \url{http://www.lrde.epita.fr}}}\\
+
+    \par ~ \hfill \textcolor{medg}{\textit{1998 to 2003}}\\[5pt]
+    Graduated from \'Ecole Pour l'Informatique et les Techniques Avanc\'ees, \textbf{EPITA}, as a member of the scientific computing and image processing class.\\[5pt]
+    {\textcolor{hyperlink}{\myurl | \url{http://www.epita.fr}}}\\[14.5pt]
+    %
+    % \par ~ \hfill \textcolor{medg}{\textit{1998}}\\[5pt]
+	% Baccalaur\'eat S au lyc\'ee Louise Michel de Champigny-sur-Marne.\\[12.5pt]
+    {\textcolor{maroon}{\mysection skills}}\\[-5pt]
+    
+    \begin{itemize}[leftmargin=10.5pt, rightmargin=0pt, labelsep=5pt, itemsep=0pt, topsep=0pt]
+      \item C/C++ with STL and Boost \hfill \fivenotes
+      \item Haskell \hfill \threenotes
+      \item Java \hfill \fournotes
+      \item C\# \hfill \threenotes
+      \item OpenGL \hfill \threenotes
+      \item DirectX and XNA \hfill \fournotes
+      \item \LaTeX \hfill \threenotes
+      \item HTML/CSS/JavaScript \hfill \threenotes
+	\end{itemize}
+
+	~\\[4pt]
+    {\textcolor{maroon}{\mysection interests}}\\[-5pt]
+
+    \begin{itemize}[leftmargin=10.5pt, rightmargin=0pt, labelsep=5pt, itemsep=0pt, topsep=0pt]
+      \item Functional programming, language design, Scala, Ruby.
+      \item Graphics programming, data visualization, design, typography.
+      \item Parallel/distributed/actor programming.
+      \item Web development: Node.js, jQuery, Redis.
+    \end{itemize}
+
+	~\\[4pt]
+    {\textcolor{maroon}{\mysection other}}\\[-5pt]
+
+    \begin{itemize}[leftmargin=10.5pt, rightmargin=0pt, labelsep=5pt, itemsep=0pt, topsep=0pt]
+      \item Fluent english, used daily.
+      \item Music: guitar, played with an amateur band for several years.
+      \item Sports: hockey and krav-maga.
+    \end{itemize}
+  \end{minipage}
+  
+  % Footer with contacts
+  \begin{tikzpicture}[overlay, opacity=0.1]
+    \draw (7, -0.015) node {\overlay contact};
+  \end{tikzpicture}
+\end{document}
